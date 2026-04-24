@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Result Calculator</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="number" id="sub1" placeholder="Subject 1 Marks">
+    <input type="number" id="sub2" placeholder="Subject 2 Marks">
+    <input type="number" id="sub3" placeholder="Subject 3 Marks">
+    <input type="number" id="sub4" placeholder="Subject 4 Marks">
+    <input type="number" id="sub5" placeholder="Subject 5 Marks">
+
+    <button onclick="calculateResult()">Calculate</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateResult() {
+    let name = document.getElementById("name").value;
+
+    let s1 = Number(document.getElementById("sub1").value) || 0;
+    let s2 = Number(document.getElementById("sub2").value) || 0;
+    let s3 = Number(document.getElementById("sub3").value) || 0;
+    let s4 = Number(document.getElementById("sub4").value) || 0;
+    let s5 = Number(document.getElementById("sub5").value) || 0;
+
+    if (name === "") {
+        alert("Please enter your name");
+        return;
+    }
+
+    let total = s1 + s2 + s3 + s4 + s5;
+    let percentage = total / 5;
+    let grade;
+
+    if (percentage >= 90) grade = "A+";
+    else if (percentage >= 75) grade = "A";
+    else if (percentage >= 60) grade = "B";
+    else if (percentage >= 50) grade = "C";
+    else grade = "Fail";
+
+    document.getElementById("result").innerHTML = `
+        <h3>Name: ${name}</h3>
+        <p>Total Marks: ${total}</p>
+        <p>Percentage: ${percentage.toFixed(2)}%</p>
+        <p>Grade: ${grade}</p>
+    `;
+}
+</script>
+
+</body>
+</html>

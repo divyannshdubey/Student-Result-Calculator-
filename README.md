@@ -20,8 +20,7 @@ A simple and interactive web-based application to calculate student results, per
 <h2>🛠️ Technologies Used</h2>
 <ul>
   <li>HTML5</li>
-  <li>CSS3</li>
-  <li>JavaScript (Vanilla JS)</li>
+  
 </ul>
 
 <hr>
